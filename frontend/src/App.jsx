@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import {Home} from './pages/Home'
-import {Success} from './pages/success';
+import {Success} from "./pages/Success"
 import {NotFound} from './pages/NotFound';
 import './App.css';
 
