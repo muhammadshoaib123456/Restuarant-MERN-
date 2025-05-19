@@ -1,9 +1,11 @@
-import './app.css';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import {Home} from './pages/Home'
 import {Success} from './pages/success';
 import {NotFound} from './pages/NotFound';
+import './App.css';
+
 import React from 'react';
 
 const App = () => {
