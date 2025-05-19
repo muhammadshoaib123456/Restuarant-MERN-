@@ -14,6 +14,9 @@ const Reservation = () => {
   const [phone, setPhone] = useState(0);
   const navigate = useNavigate();
 
+
+axios.defaults.withCredentials = true;
+
   const handleReservation = async (e) => {
     e.preventDefault();
     try {
