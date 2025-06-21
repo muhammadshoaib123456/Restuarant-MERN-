@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const dbconnection = ()=>{
     mongoose.connect(process.env.MONGO_URI, {
-        dbName: "restaurant"
+        dbName: "resturantapp"
     }).then(()=>{
         console.log('Mongodb connected succefully')
     }).catch(err=>{
