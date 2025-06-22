@@ -11,9 +11,9 @@ dotenv.config({ path: "./config/config.env" });
 // ✅ Allow CORS from your frontend
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: process.env.FRONTEND_URL || "https://restuarant-mern-5cb6.vercel.app",
     credentials: true,
-    methods: ["POST"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
@@ -22,9 +22,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // ✅ Routes
-app.get("/", (req,res)=>{
-  res.send("hello world")
-})
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
 app.use("/api/reservation", router);
 
 // ✅ DB connection

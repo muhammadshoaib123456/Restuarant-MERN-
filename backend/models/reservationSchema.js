@@ -4,34 +4,42 @@ import validator from 'validator';
 const reservationSchema = new mongoose.Schema({
   firstName: {
     type: String,
-    required: true,
-    minLength: [3, "first name must contain at least 3 characters"],
-    maxLength: [30, "first name cannot exceed 30 characters"],
+    required: [true, "First name is required"],
+    minlength: [3, "First name must contain at least 3 characters"],
+    maxlength: [30, "First name cannot exceed 30 characters"],
+    trim: true,
   },
   lastName: {
     type: String,
-    required: true,
-    minLength: [3, "last name must contain at least 3 characters"],
-    maxLength: [30, "last name cannot exceed 30 characters"],
+    required: [true, "Last name is required"],
+    minlength: [3, "Last name must contain at least 3 characters"],
+    maxlength: [30, "Last name cannot exceed 30 characters"],
+    trim: true,
   },
   email: {
     type: String,
-    required: true,
-    validate: [validator.isEmail, "provide a valid email"], // Corrected 'valid' to 'validate'
+    required: [true, "Email is required"],
+    validate: [validator.isEmail, "Provide a valid email"],
+    lowercase: true,
+    trim: true,
   },
   phone: {
     type: String,
-    required: true,
-    minLength: [11, "phone number must contain exactly 11 digits"], // Corrected message
-    maxLength: [11, "phone number must contain exactly 11 digits"], // Corrected message
+    required: [true, "Phone number is required"],
+    validate: {
+      validator: function (v) {
+        return /^\d{11}$/.test(v); // Exactly 11 digits
+      },
+      message: "Phone number must be exactly 11 digits",
+    },
   },
   time: {
     type: String,
-    required: true,
+    required: [true, "Time is required"],
   },
   date: {
     type: String,
-    required: true,
+    required: [true, "Date is required"],
   },
 });
 
