@@ -21,7 +21,7 @@ axios.defaults.withCredentials = true;
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://restuarant-mern.vercel.app/reservation/send",
+        "https://restuarant-mern.vercel.app/api/reservation/send",
         { firstName, lastName, email, phone, date, time },
         {
           headers: {
